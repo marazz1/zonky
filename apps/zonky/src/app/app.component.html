@@ -1,0 +1,5 @@
+<h1>Zonky</h1>
+<zonky-rating-form
+    [data]="average$ | async"
+    (submitted)="calculateAverage($event)"
+></zonky-rating-form>

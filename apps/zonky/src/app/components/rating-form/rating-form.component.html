@@ -1,0 +1,32 @@
+<form
+    [formGroup]="formGroup"
+    (ngSubmit)="submit()"
+>
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <input
+                    placeholder="Rating"
+                    matInput
+                    type="text"
+                    name="rating"
+                    formControlName="ratingType"
+                >
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <button
+                type="submit"
+                mat-raised-button
+                color="primary"
+            >
+                Search
+            </button>
+        </div>
+    </div>
+</form>
+<br>
+<div class="result">
+    <span>Average amount:</span>
+    <span>{{loading ? '...' : data}}</span>
+</div>
