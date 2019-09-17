@@ -1,8 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { BaseComponent } from '@zonky/zonky-ui';
 import { RatingForm } from '../../forms';
-import { RatingFormModel } from '../../models/common';
 import { RatingType } from '../../models/types';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'zonky-rating-form',
@@ -10,9 +11,9 @@ import { RatingType } from '../../models/types';
   styleUrls: ['./rating-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RatingFormComponent implements OnInit {
+export class RatingFormComponent extends BaseComponent implements OnInit {
 
-
+  options = ['A', 'AA', 'AAA', 'AAAA', 'AAAAA', 'AE', 'AAE'];
   formGroup: RatingForm;
   loading = false;
   private _data: number;
@@ -28,19 +29,20 @@ export class RatingFormComponent implements OnInit {
   @Output() submitted: EventEmitter<RatingType> = new EventEmitter();
 
   constructor(fb: FormBuilder) {
+    super();
     this.formGroup = new RatingForm(fb);
   }
 
   ngOnInit() {
+    this.formGroup.get('ratingType')
+      .valueChanges
+      .pipe(takeUntil(this.baseSubject))
+      .subscribe(x => this.submit(x));
   }
 
-  submit() {
-    if (this.formGroup.valid) {
-      this.loading = true;
-      this.submitted.emit(this.formGroup.value.ratingType);
-    } else {
-      this.formGroup.markAllAsTouched();
-    }
+  submit(value: RatingType) {
+    this.loading = true;
+    this.submitted.emit(value);
   }
 
 }

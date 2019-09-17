@@ -4,7 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { HttpService } from '@zonky/zonky-http';
 import { AppComponent } from './app.component';
 import { RatingFormComponent } from './components';
@@ -18,7 +19,8 @@ import { ZonkyService } from './services';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [HttpService, ZonkyService],
   bootstrap: [AppComponent]

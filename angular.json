@@ -21,13 +21,8 @@
             "polyfills": "apps/zonky/src/polyfills.ts",
             "tsConfig": "apps/zonky/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "apps/zonky/src/favicon.ico",
-              "apps/zonky/src/assets"
-            ],
-            "styles": [
-              "apps/zonky/src/styles.scss"
-            ],
+            "assets": ["apps/zonky/src/favicon.ico", "apps/zonky/src/assets"],
+            "styles": ["apps/zonky/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -87,10 +82,7 @@
               "apps/zonky/tsconfig.app.json",
               "apps/zonky/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/zonky/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/zonky/**"]
           }
         },
         "test": {
@@ -124,13 +116,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/zonky-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/zonky-e2e/**"
-            ]
+            "tsConfig": ["apps/zonky-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/zonky-e2e/**"]
           }
         }
       }
@@ -148,10 +135,7 @@
               "libs/zonky-http/tsconfig.lib.json",
               "libs/zonky-http/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/zonky-http/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/zonky-http/**"]
           }
         },
         "test": {
@@ -182,9 +166,7 @@
             "outputPath": "dist/apps/zonky-backend",
             "main": "apps/zonky-backend/src/main.ts",
             "tsConfig": "apps/zonky-backend/tsconfig.app.json",
-            "assets": [
-              "apps/zonky-backend/src/assets"
-            ]
+            "assets": ["apps/zonky-backend/src/assets"]
           },
           "configurations": {
             "production": {
@@ -213,10 +195,7 @@
               "apps/zonky-backend/tsconfig.app.json",
               "apps/zonky-backend/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/zonky-backend/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/zonky-backend/**"]
           }
         },
         "test": {
@@ -225,6 +204,37 @@
             "jestConfig": "apps/zonky-backend/jest.config.js",
             "tsConfig": "apps/zonky-backend/tsconfig.spec.json"
           }
+        }
+      }
+    },
+    "zonky-ui": {
+      "projectType": "library",
+      "root": "libs/zonky-ui",
+      "sourceRoot": "libs/zonky-ui/src",
+      "prefix": "zonky",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/zonky-ui/tsconfig.lib.json",
+              "libs/zonky-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/zonky-ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/zonky-ui/jest.config.js",
+            "tsConfig": "libs/zonky-ui/tsconfig.spec.json",
+            "setupFile": "libs/zonky-ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

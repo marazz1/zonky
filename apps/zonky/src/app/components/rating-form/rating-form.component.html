@@ -5,23 +5,16 @@
     <div class="row">
         <div class="col">
             <mat-form-field>
-                <input
-                    placeholder="Rating"
-                    matInput
-                    type="text"
-                    name="rating"
-                    formControlName="ratingType"
-                >
+                <mat-label>Rating</mat-label>
+                <mat-select formControlName="ratingType">
+                    <mat-option
+                        *ngFor="let item of options"
+                        [value]="item"
+                    >
+                        {{item}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
-        </div>
-        <div class="col">
-            <button
-                type="submit"
-                mat-raised-button
-                color="primary"
-            >
-                Search
-            </button>
         </div>
     </div>
 </form>

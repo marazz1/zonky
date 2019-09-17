@@ -15,7 +15,7 @@ export class ZonkyService {
         return this.http.get<LoanHttpModel[], number>(url, data => {
             const amounts = data.map(loan => loan.amount);
             const average = (arr: number[]) => arr.reduce((a, b) => a + b, 0) / arr.length;
-            return average(amounts);
+            return amounts.length > 0 ? average(amounts) : null;
         });
     }
 }

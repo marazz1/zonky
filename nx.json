@@ -19,6 +19,9 @@
     },
     "zonky-backend": {
       "tags": []
+    },
+    "zonky-ui": {
+      "tags": []
     }
   }
 }

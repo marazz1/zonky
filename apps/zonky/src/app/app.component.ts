@@ -10,7 +10,7 @@ import { RatingType } from './models/types';
 })
 export class AppComponent {
 
-  average$: Observable<number> = of(null);
+  average$: Observable<number>;
 
   constructor(private zonkyService: ZonkyService) {
   }

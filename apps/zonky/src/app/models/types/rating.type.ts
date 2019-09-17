@@ -1,2 +1,2 @@
-export type RatingType = 'A' | 'AA' | 'AAA' | 'AAAA' | 'AAAAA' | 'AE';
+export type RatingType = 'A' | 'AA' | 'AAA' | 'AAAA' | 'AAAAA' | 'AE' | 'AAE';
 // didn´t find an enpoint for the list of ratings...
